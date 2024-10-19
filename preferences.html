@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Page</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background-color: #343a40; /* Dark background */
+            color: white; /* White text */
+        }
+        .light-mode {
+            background-color: white; /* Light background */
+            color: black; /* Black text */
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="container mt-5 text-center">
+        <h1>Settings</h1>
+
+        <!-- Theme Switch -->
+        <div class="form-group">
+            <label for="themeSwitch">Select Interface Theme:</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="themeSwitch" onchange="toggleTheme()">
+                <label class="custom-control-label" for="themeSwitch">Toggle Dark/Light Mode</label>
+            </div>
+        </div>
+
+        <!-- Default Location Selection -->
+        <div class="form-group">
+            <label for="locationSelect">Select Default Location:</label>
+            <div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="location1" name="location" class="custom-control-input" value="New York" checked>
+                    <label class="custom-control-label" for="location1">New York</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="location2" name="location" class="custom-control-input" value="Los Angeles">
+                    <label class="custom-control-label" for="location2">Los Angeles</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="location3" name="location" class="custom-control-input" value="Chicago">
+                    <label class="custom-control-label" for="location3">Chicago</label>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
+    </div>
+
+    <!-- Bootstrap and jQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Toggle theme function
+        function toggleTheme() {
+            const body = document.body;
+            const themeSwitch = document.getElementById('themeSwitch');
+
+            if (themeSwitch.checked) {
+                body.classList.replace('light-mode', 'dark-mode');
+            } else {
+                body.classList.replace('dark-mode', 'light-mode');
+            }
+        }
+
+        // Save settings function
+        function saveSettings() {
+            const selectedLocation = document.querySelector('input[name="location"]:checked').value;
+            const currentTheme = document.getElementById('themeSwitch').checked ? 'Dark Mode' : 'Light Mode';
+            
+            alert(`Settings Saved!\nTheme: ${currentTheme}\nLocation: ${selectedLocation}`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* Center items horizontally */
+    min-height: 100vh;
+    position: relative; /* Enable positioning for the toggle button */
+}
+.dark-mode {
+    background-color: #1c1c1e; /* Aggiornato il colore di sfondo per la modalità scura */
+    color: white;
+}
+.light-mode {
+    background-color: white;
+    color: black;
+}
+.content {
+    text-align: center;
+    margin-top: 20px;
+}
+.icon {
+    margin-right: 10px;
+    color: #333; /* Default icon color */
+}
+.chart-container {
+    width: 100%;
+    max-width: 800px; /* Set a max width for the chart */
+    height: 300px;
+    margin-bottom: 20px;
+    display: flex; /* Use flexbox to center the canvas */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    border-radius: 15px; /* Round the corners */
+    overflow: hidden; /* Prevent overflow of rounded corners */
+}
+canvas {
+    width: 100% !important; /* Ensure the canvas takes full width */
+    height: 100% !important; /* Ensure the canvas takes full height */
+}
+.toggle-button {
+    position: absolute; /* Position the button absolutely */
+    top: 20px; /* Position from the top */
+    right: 20px; /* Position from the right */
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    cursor: pointer; /* Change cursor to pointer */
+    font-size: 24px; /* Increase font size for the icon */
+    color: inherit; /* Inherit color from parent */
+}
+/* Light Mode Icon Colors */
+.light-mode .icon.fa-sun {
+    color: #FFC107; /* Bright yellow for sun icon */
+}
+.light-mode .icon {
+    color: #000; /* Black color for other icons */
+}
+/* Dark Mode Icon Colors */
+.dark-mode .icon.fa-moon {
+    color: #FFFFFF; /* White color for moon icon */
+}
+.dark-mode .icon {
+    color: #00BFFF; /* Light blue for other icons */
+}
