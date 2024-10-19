@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature & Humidity Monitor</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+
+</head>
+<body class="light-mode">      
+    
+    <!-- Theme Switch -->
+            <div class="form-group theme-switch" style="position: absolute; top: 10px; right: 10px;">
+                <!-- <label for="themeSwitch">Select Interface Theme:</label> -->
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="themeSwitch" onchange="toggleTheme()">
+                    <label class="custom-control-label" for="themeSwitch">Dark/Light</label>
+                </div>
+            </div>
+
+    <div class="content">
+        <h1>Temperature & Humidity Monitor</h1>
+        <p><i class="fas fa-thermometer-half icon"></i> Current Temperature: <span id="temperature">--</span>°C</p>
+        <p><i class="fas fa-tint icon"></i> Current Humidity: <span id="humidity">--</span>%</p>
+        <p>
+            <i class="fas fa-map-marker-alt icon"></i>
+            <a href="https://www.google.com/maps/place/Frascineto" target="_blank">Frascineto</a>     
+        </p>
+        </div>
+
+    <div class="chart-container">
+        <canvas id="chart"></canvas>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script> <!-- Link to the external JavaScript file -->
+
+        <!-- Bootstrap and jQuery JS -->
+        <script>
+            // Toggle theme function
+            function toggleTheme() {
+                const body = document.body;
+                const themeSwitch = document.getElementById('themeSwitch');
+    
+                if (themeSwitch.checked) {
+                    body.classList.replace('light-mode', 'dark-mode');
+                } else {
+                    body.classList.replace('dark-mode', 'light-mode');
+                }
+            }
+    
+            // Save settings function
+            function saveSettings() {
+                const selectedLocation = document.querySelector('input[name="location"]:checked').value;
+                const currentTheme = document.getElementById('themeSwitch').checked ? 'Dark Mode' : 'Light Mode';
+                
+                alert(`Settings Saved!\nTheme: ${currentTheme}\nLocation: ${selectedLocation}`);
+            }
+        </script>
+</body>
+</html>
